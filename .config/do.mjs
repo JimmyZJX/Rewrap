@@ -411,7 +411,7 @@ class Version {
   constructor (major, minor) {
     this.major = major
     this.minor = minor
-    this.isStable = major === 1 || major % 2 === 0
+    this.isStable = true // major === 1 || major % 2 === 0
   }
 
   static #path = 'vscode/package.json'
