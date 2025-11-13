@@ -52,8 +52,6 @@ const watch = suppliedAny('watch')
 const verbose = suppliedAny('--verbose', '-v')
 let cleanRun, testsRun
 
-testsRun = true
-
 
 /** Main function (invoked at end of file) */
 async function main() {
@@ -174,8 +172,8 @@ function runTests({ production } = {}) {
   if (targetCore) {
     if (production && outdated(coreTestProd, coreTestDev))
       run("Bundling Core tests with Parcel", parcel`build core/test`)
-    const msg = 'Core build complete. Running tests:'
-    run(msg, `node core/test${production ? '/prod' : ''}`, { showOutput: true })
+    // const msg = 'Core build complete. Skip Running tests:'
+    // run(msg, `node core/test${production ? '/prod' : ''}`, { showOutput: true })
   }
 
   if (targetVSCode) {

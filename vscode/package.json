@@ -38,6 +38,7 @@
   "activationEvents": [
     "*"
   ],
+  "main": "./dist/Extension.js",
   "browser": "./dist/Extension.js",
   "capabilities": {
     "untrustedWorkspaces": {
