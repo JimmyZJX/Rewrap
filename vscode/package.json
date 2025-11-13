@@ -12,7 +12,7 @@
     "paragraph",
     "multi-root ready"
   ],
-  "version": "17.8.3",
+  "version": "17.8.4",
   "publisher": "stkb",
   "icon": "logo.png",
   "repository": {
@@ -29,8 +29,7 @@
     "vscode": "^1.45.0"
   },
   "extensionKind": [
-    "ui",
-    "workspace"
+    "ui"
   ],
   "categories": [
     "Formatters"
@@ -39,7 +38,6 @@
   "activationEvents": [
     "*"
   ],
-  "main": "./dist/Extension.js",
   "browser": "./dist/Extension.js",
   "capabilities": {
     "untrustedWorkspaces": {

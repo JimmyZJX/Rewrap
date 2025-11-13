@@ -52,6 +52,8 @@ const watch = suppliedAny('watch')
 const verbose = suppliedAny('--verbose', '-v')
 let cleanRun, testsRun
 
+testsRun = true
+
 
 /** Main function (invoked at end of file) */
 async function main() {
