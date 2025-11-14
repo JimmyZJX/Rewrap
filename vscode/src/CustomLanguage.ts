@@ -1,8 +1,16 @@
-import * as Path from 'path'
-import {readFileSync} from 'fs'
-import * as JSON from 'json5'
-import * as vscode from 'vscode'
-import {noCustomMarkers} from './Core'
+// Optional imports for Node.js built-ins (not available in browser/web)
+let Path: any;
+let readFileSync: any;
+try {
+    Path = require('path');
+    readFileSync = require('fs').readFileSync;
+} catch {
+    // Browser environment - these modules aren't available
+}
+
+import * as JSON from 'json5';
+import * as vscode from 'vscode';
+import {noCustomMarkers} from './Core';
 
 const getConfig = (getText, path) => {
     let config = {line: null, block: null}
@@ -56,6 +64,11 @@ const createCache = exts => {
 
 /* Can take exts & getFileText mocks for testing */
 export default function(exts?, getFileText?) {
+    // In browser/web environment, custom language markers are not supported
+    if (!readFileSync || !Path) {
+        return () => noCustomMarkers;
+    }
+
     exts = exts || vscode.extensions.all
     if(!exts.length)
         console.warn("`vscode.extensions.all` returned an empty array. Something is wrong.")

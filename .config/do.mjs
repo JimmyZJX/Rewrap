@@ -235,7 +235,7 @@ function buildVSCode({ production } = {}) {
     run("Typechecking TypeScript", npx`tsc -p vscode --noEmit`)
     if (production) {
       run("Linting TypeScript", npx`eslint vscode --ext .ts`)
-      run("Bundling with Parcel", parcel`build vscode --no-source-maps`)
+      run("Bundling with esbuild", 'node esbuild.js --production', { cwd: './vscode' })
       FS.rmSync(srcMap, { force: true })
     }
     else run("Parcel bundling VS Code Extension", parcel`build vscode --no-optimize`)

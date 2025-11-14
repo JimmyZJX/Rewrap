@@ -123,6 +123,15 @@
   },
   "source": "src/Extension.ts",
   "targets": {
-    "browser": false
+    "main": false,
+    "browser": {
+      "context": "browser",
+      "includeNodeModules": true,
+      "source": "src/Extension.ts",
+      "distDir": "dist"
+    }
+  },
+  "devDependencies": {
+    "esbuild": "^0.27.0"
   }
 }
