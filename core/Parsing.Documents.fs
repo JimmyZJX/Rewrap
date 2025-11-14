@@ -170,7 +170,7 @@ let mutable languages = [
     lang "MATLAB" "" "" <| sc [line "%(?![%{}])"; block ("%\{", "%\}")]
     lang "Objective-C" "" ".m|.mm"
         java
-    lang "FeatureDescription" "feature-description" "" <| sc [line "#"]
+    lang "FeatureDescription" "feature-description" "" <| sc [line "#", line "(?!#)"]
     lang "OCaml" "ocaml|ocaml.interface" ".ml|.mli" <| sc [block (@"(.*\(\*+_? )", @"\*\)")]
     lang "Octave" "" "" <| sc [block ("#\{", "#\}"); block ("%\{", "%\}"); line "##?"; line "%[^!]"]
     lang "Pascal" "delphi" ".pas" <| sc [block (@"\(\*", @"\*\)"); block (@"\{(?!\$)", @"\}"); line "///?"]
